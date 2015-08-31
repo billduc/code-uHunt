@@ -9,25 +9,27 @@
 
 using namespace std;
 typedef long long ll;
-#define N 100005
+#define N 30005
+#define oo 100000000
 
-int a[300];
-
+int tsp[17][1<<16-1];
+int dis[17][17];
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    freopen("in.txt","r",stdin);
+    //ios_base::sync_with_stdio(false);
+    //freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-    int n,q;
-    int c=0;
-    while (cin>>n>>q)
-    {
-        if (n==0 && q==0)
-            break;
-        rep(i,n)
-            cin>>a[i];
-        c++;
-        cout<<"SET "<<c<<":\n";
-    }
+    int n;
+    cin>>n;
+    rep(i,n)
+        rep(j,n)
+            cin>>dis[i][j];
+    rep(pos,n)
+        {
+            rep(bit,1<<n-1)
+
+        }
     return 0;
 }
+
+

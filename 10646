@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define DEBUG(x) {cout<< #x <<" = " << x <<endl;}
+int main(){
+    //freopen("in.txt","r",stdin);
+    int test;
+    cin>>test;
+    string s[123];
+    int St = 1;
+    while (test--){
+        for(int i = 1; i <= 52; ++i)
+            cin>>s[i];
+        bool c[123];
+        for(int  i = 1; i <= 52; ++i)
+            c[i] = true;
+
+        int p = 1;
+        int y = 0;
+
+        for(int xx = 1; xx <= 3; ++xx){
+            if (s[p][0] >= '2' && s[p][0] <= '9'){
+                int x = s[p][0] - '0';
+                y += x;
+                int k = 10 - x;
+                for(int i = p; i <= p + k; ++i)
+                    c[i]=false;
+                p = p + k + 1;
+            }
+            else
+            {
+                y += 10;
+                c[p]=false;
+                p++;
+            }
+        }
+        //DEBUG(y);
+
+        int d = 1;
+        for(int i = 1;i <= 52; ++i)
+            if (d == y && c[i])
+            {
+                cout<<"Case "<<St<<": "<<s[i]<<endl;
+                break;
+            }
+            else
+                if (c[i])
+                    d++;
+        St++;
+    }
+
+    return 0;
+}
